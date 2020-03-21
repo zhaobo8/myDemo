@@ -32,3 +32,6 @@ build/
 
 .gitignore
 .git-credentials
+mvnw
+mvnw.**
+.main/**
