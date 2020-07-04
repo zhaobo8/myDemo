@@ -1,4 +1,4 @@
-package com.example.demo.aop;
+package com.example.demo.aop.jdk;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -20,11 +20,12 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class PersonHelper {
-   @Pointcut("execution(* *.aop*(..))")
+    @Pointcut("@annotation(com.example.demo.aop.AopPointcut)")
     public void myPointcut(){}
 
     @Before("myPointcut()")
     public void before(){
         System.out.println("before");
     }
+
 }

@@ -1,9 +1,8 @@
 package com.example.demo.aop;
 
-import com.example.demo.aop.cglib.Person;
-import com.example.demo.aop.jdk.PersonImpl;
+import com.example.demo.aop.cglib.PersonCglib;
+import com.example.demo.aop.jdk.Person;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,20 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/aop")
 public class AopController {
     @Autowired
-    PersonImpl person;
+    Person person;
 
     @Autowired
-    Person person2;
+    PersonCglib personCglib;
 
     @RequestMapping("/jdkTest")
-    public void aop_JdkTest(){
+    public void aop_Test(){
+        System.out.println("jdk-------");
         person.sayHello("zhaobo");
         System.out.println(person.getClass());
+        System.out.println("cglib-------");
+        personCglib.sayHello("zhaobo");
+        System.out.println(personCglib.getClass());
     }
 
-    @RequestMapping("/cglibTest")
-    public void aop_CglibTest(){
-        person2.sayHello("zhaobo");
-        System.out.println(person2.getClass());
-    }
 }

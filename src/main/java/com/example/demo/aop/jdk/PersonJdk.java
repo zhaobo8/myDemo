@@ -1,6 +1,6 @@
 package com.example.demo.aop.jdk;
 
-import org.aspectj.lang.annotation.Pointcut;
+import com.example.demo.aop.AopPointcut;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,13 +8,11 @@ import org.springframework.stereotype.Component;
  * @date 2020/3/26 11:38
  */
 @Component
-public class PersonImpl implements Person {
+public class PersonJdk implements Person {
     @Override
+    @AopPointcut
     public void sayHello(String name) {
         System.out.println("Hello!"+name);
     }
 
-    public void eat(String food){
-        System.out.println("我正在吃:"+food);
-    }
 }

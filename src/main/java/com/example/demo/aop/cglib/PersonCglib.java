@@ -1,5 +1,6 @@
 package com.example.demo.aop.cglib;
 
+import com.example.demo.aop.AopPointcut;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,12 +8,10 @@ import org.springframework.stereotype.Component;
  * @date 2020/3/26 15:24
  */
 @Component
-public class Person {
+public class PersonCglib {
+
+    @AopPointcut
     public void sayHello(String name) {
         System.out.println("Hello!....Cglib..."+name);
-    }
-
-    public void eat(String food){
-        System.out.println("我正在吃:"+food);
     }
 }

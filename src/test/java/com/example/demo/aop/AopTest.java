@@ -1,9 +1,11 @@
 package com.example.demo.aop;
 
-import com.example.demo.aop.jdk.PersonImpl;
+import com.example.demo.aop.cglib.PersonCglib;
+import com.example.demo.aop.jdk.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 
 /**
  * @author Zhaobo
@@ -11,17 +13,22 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 public class AopTest {
-    @Autowired AopController aopController;
+    @Autowired
+    Person person;
 
-    @Test
-    public void jdkTest(){
-        aopController.aop_JdkTest();
+    @Autowired
+    PersonCglib personCglib;
 
+   @Test
+    public void aop_Test(){
+        System.out.println("jdk-------");
+        person.sayHello("zhaobo");
+        System.out.println(person.getClass());
+        System.out.println("cglib-------");
+        personCglib.sayHello("zhaobo");
+        System.out.println(personCglib.getClass());
     }
 
-    @Test
-    public void cglibTest(){
-        aopController.aop_CglibTest();
 
-    }
+
 }
