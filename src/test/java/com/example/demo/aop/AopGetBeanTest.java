@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContext;
 @SpringBootTest
 public class AopGetBeanTest {
     @Autowired
-    private ApplicationContext applicationContext;
+    ApplicationContext applicationContext;
 
     @Test
     public void getBeanTest(){
