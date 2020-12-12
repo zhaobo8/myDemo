@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class PersonHelper {
     @Pointcut("@annotation(com.example.demo.aop.AopPointcut)")
+//    @Pointcut("execution(* com.example.demo.aop.*.*(..))")
     public void myPointcut(){}
 
     @Before("myPointcut()")
